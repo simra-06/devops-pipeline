@@ -36,6 +36,13 @@ pipeline {
                 }
             }
         }
+        stage('Verify Docker') {
+            steps {
+                bat 'where.exe docker'
+                bat 'docker --version'
+                bat 'docker info'
+            }
+        }
 
         stage('Build and Push Docker Image') {
             steps {
